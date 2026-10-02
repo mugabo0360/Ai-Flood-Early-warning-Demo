@@ -1,0 +1,33 @@
+# Core
+numpy
+pandas
+scipy
+scikit-learn
+xgboost
+torch
+matplotlib
+plotly
+pyyaml
+python-dotenv
+# Geospatial / Earth Engine
+earthengine-api
+geemap
+geopandas
+rasterio
+xarray
+rioxarray
+shapely
+pyproj
+# Backend
+fastapi
+uvicorn[standard]
+sqlalchemy
+psycopg2-binary
+geoalchemy2
+pydantic
+# Optional IoT
+paho-mqtt
+# Dev
+pytest
+jupyter
+ruff

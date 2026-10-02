@@ -1,0 +1,33 @@
+# Skeleton only — in progress. Adjust before use; change default passwords.
+services:
+  db:
+    image: postgis/postgis:16-3.4
+    environment:
+      POSTGRES_DB: floodewd
+      POSTGRES_USER: floodewd
+      POSTGRES_PASSWORD: change_me
+    ports: ["5432:5432"]
+    volumes: ["pgdata:/var/lib/postgresql/data"]
+
+  mqtt:          # optional: ESP32 ingestion
+    image: eclipse-mosquitto:2
+    ports: ["1883:1883"]
+    # TODO: add mosquitto.conf (auth) for anything beyond local testing
+
+  api:           # TODO: add Dockerfile
+    build: .
+    command: uvicorn src.api.main:app --host 0.0.0.0 --port 8000
+    environment:
+      DATABASE_URL: postgresql://floodewd:change_me@db:5432/floodewd
+    depends_on: [db]
+    ports: ["8000:8000"]
+
+  dashboard:     # TODO: add dashboard/Dockerfile
+    build: ./dashboard
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:8000
+    depends_on: [api]
+    ports: ["3000:3000"]
+
+volumes:
+  pgdata:
