@@ -1,15 +1,18 @@
+# Keep in sync with pyproject.toml ([project] dependencies + optional extras).
 # Core
 numpy
 pandas
+pyyaml
+python-dotenv
+pydantic>=2
+# ML (extra: ml)
 scipy
 scikit-learn
 xgboost
 torch
 matplotlib
 plotly
-pyyaml
-python-dotenv
-# Geospatial / Earth Engine
+# Geospatial / Earth Engine (extra: geo)
 earthengine-api
 geemap
 geopandas
@@ -18,16 +21,16 @@ xarray
 rioxarray
 shapely
 pyproj
-# Backend
+# Backend (extra: api)
 fastapi
 uvicorn[standard]
 sqlalchemy
 psycopg2-binary
 geoalchemy2
-pydantic
-# Optional IoT
+# Optional IoT (extra: iot)
 paho-mqtt
-# Dev
+# Dev (extra: dev)
 pytest
-jupyter
 ruff
+# Notebooks (extra: notebooks)
+jupyter

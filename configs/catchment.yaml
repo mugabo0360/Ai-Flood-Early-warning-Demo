@@ -1,0 +1,16 @@
+# Study-area configuration. Values marked TODO / [..] are placeholders and must be
+# filled in before running any pipeline command (data, baseline, train, eval).
+name: "[choose catchment]"
+
+geometry:
+  # Either a bounding box [min_lon, min_lat, max_lon, max_lat] (WGS84) or a GeoJSON path.
+  bbox: TODO
+  geojson: TODO
+
+start_date: TODO   # e.g. 2001-01-01
+end_date: TODO     # e.g. 2023-12-31
+
+# Observed variable to forecast, e.g. "discharge_m3s" or "water_level_m". Source TBD.
+target_variable: TODO
+
+horizons: [1, 2, 3, 4, 5, 6, 7]
